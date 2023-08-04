@@ -16,7 +16,7 @@ def translate_commands(initial_position, initial_direction, commands):
             change = direction_changes[current_direction]
             if command == "b":
                 change = tuple(-x for x in change)
-            current_position = tuple(pos + delta for pos, delta in zip(current_position, change))
+            current_position = tuple((old + new) for old, new in zip(current_position, change))
         elif command == "l" or command == "r":
             directions = ["N", "E", "S", "W", "Up", "Down"]
             current_index = directions.index(current_direction)
